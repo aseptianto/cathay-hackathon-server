@@ -20,6 +20,9 @@ Route::get('db-check','HackController@DBCheck');
 Route::get('/facebookRedirect', 'FacebookAuthController@redirect');
 Route::get('/facebookCallback', 'FacebookAuthController@callback');
 
+Route::get('/findMatch/{profile_id}', 'HackController@hackMatchingAlgorithm');
+
+
 //// USThing paths and API
 //Route::get('usthing/', 'USThingController@handleIndex');
 //Route::get('usthing/{itsc}', 'USThingController@handleIndex');
