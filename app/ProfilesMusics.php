@@ -6,6 +6,8 @@ use Illuminate\Database\Eloquent\Model;
 
 class ProfilesMusics extends Model
 {
-    protected $table = 'profiles_hometowns';
+    protected $table = 'profiles_works';
+
+
 
 }
