@@ -18,7 +18,7 @@ class Profiles extends Model
             $profiles = new Profiles;
             $profiles->profile_id = $profile['id'];
             $profiles->profile_gender = $profile['gender'];
-            $profiles->profile_email = $profile['id'];
+            $profiles->profile_email = $profile['email'];
             $profiles->profile_age_range = $profile['age'];
 
             $profiles->save();

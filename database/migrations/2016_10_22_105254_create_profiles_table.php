@@ -18,7 +18,7 @@ class CreateProfilesTable extends Migration
             $table->string('profile_gender');
             $table->string('profile_age_range');
             $table->string('profile_email')->unique();
-            $table->string('profile_mile_id');
+            $table->string('profile_mile_id')->default('');
             $table->timestamps();
         });
     }
