@@ -14,8 +14,11 @@
 Route::get('/', function () {
     return view('welcome');
 });
-
+Route::get('oauth','HackController@OAuth');
 Route::get('db-check','HackController@DBCheck');
+
+Route::get('/facebookRedirect', 'FacebookAuthController@redirect');
+Route::get('/facebookCallback', 'FacebookAuthController@callback');
 
 //// USThing paths and API
 //Route::get('usthing/', 'USThingController@handleIndex');

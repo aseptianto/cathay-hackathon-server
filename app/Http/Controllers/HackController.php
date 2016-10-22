@@ -13,4 +13,8 @@ class HackController extends Controller
         $data = Test::dbCheck();
         return view('dbtest', ['data' => $data]);
     }
+
+    public function OAuth() {
+        return view('oauth');
+    }
 }
