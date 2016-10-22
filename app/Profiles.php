@@ -10,7 +10,7 @@ class Profiles extends Model
     protected $primaryKey = 'profile_id';
 
     public static function existsOrCreate($profile) {
-        $profiles = Profiles::where('profile_id', $profile->id)->get();
+        $profiles = Profiles::where('profile_id', $profile['id'])->get();
 
         if (!$profiles->isEmpty()) {
             return;

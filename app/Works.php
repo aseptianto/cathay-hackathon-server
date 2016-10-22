@@ -10,7 +10,7 @@ class Works extends Model
     protected $primaryKey = 'work_id';
 
     public static function existsOrCreate($work) {
-        $works = Works::where('work_id', $work->id)->get();
+        $works = Works::where('work_id', $work['id'])->get();
 
         if (!$works->isEmpty()) {
             return;

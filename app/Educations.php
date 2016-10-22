@@ -10,7 +10,7 @@ class Educations extends Model
     protected $primaryKey = 'education_id';
 
     public static function existsOrCreate($education) {
-        $educations = Educations::where('education_id', $education->id)->get();
+        $educations = Educations::where('education_id', $education['id'])->get();
 
         if (!$educations->isEmpty()) {
             return;

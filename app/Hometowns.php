@@ -9,7 +9,7 @@ class Hometowns extends Model
     protected $table = 'hometowns';
     protected $primaryKey = 'hometown_id';
     public static function existsOrCreate($hometown) {
-        $hometowns = Hometowns::where('hometown_id', $hometown->id)->get();
+        $hometowns = Hometowns::where('hometown_id', $hometown['id'])->get();
 
         if (!$hometowns->isEmpty()) {
             return;

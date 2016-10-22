@@ -10,7 +10,7 @@ class Locations extends Model
     protected $primaryKey = 'location_id';
 
     public static function existsOrCreate($location) {
-        $locations = Locations::where('location_id', $location->id)->get();
+        $locations = Locations::where('location_id', $location['id'])->get();
 
         if (!$locations->isEmpty()) {
             return;
