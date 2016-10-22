@@ -23,6 +23,13 @@ Route::get('/facebookCallback', 'FacebookAuthController@callback');
 Route::get('/findMatch/{profile_id}', 'HackController@hackMatchingAlgorithm');
 
 
+Route::get('/login', 'HackController@login');
+Route::get('/habit', 'HackController@habit');
+Route::get('/preference', 'HackController@preference');
+Route::get('/social', 'HackController@social');
+Route::get('/success', 'HackController@success');
+Route::get('/travelstyle', 'HackController@travelStyle');
+
 //// USThing paths and API
 //Route::get('usthing/', 'USThingController@handleIndex');
 //Route::get('usthing/{itsc}', 'USThingController@handleIndex');
