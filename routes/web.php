@@ -14,3 +14,29 @@
 Route::get('/', function () {
     return view('welcome');
 });
+
+Route::get('db-check','HackController@DBCheck');
+
+//// USThing paths and API
+//Route::get('usthing/', 'USThingController@handleIndex');
+//Route::get('usthing/{itsc}', 'USThingController@handleIndex');
+//Route::get('usthing/api/loadDashboard','USThingController@returnDashboardData');
+//Route::get('usthing/api/loadQuestions', 'USThingController@loadQuestionAjax');
+//
+////User routes
+//Route::get('userProfile/{id}', 'UserProfileController@getUserProfile');
+//Route::get('editUserProfile', 'UserProfileController@viewEditProfile');
+//Route::post('editUserProfile2', 'UserProfileController@handleEditProfile');
+//Route::get('api/getAllCountries', 'CountryController@getAllAvailableCountries');
+//Route::get('api/getAllEducations', 'EducationController@getAllAvailableEducations');
+//Route::get('api/getAllIndustries', 'IndustryController@getAllAvailableIndustries');
+//Route::get('api/getAllOrganizations', 'OrganizationController@getAllAvailableOrganizations');
+//
+//
+////Questions api
+//Route::get('unansweredQuestions/{user_id}', 'QuestionController@getUnansweredQuestions');
+//Route::get('answeredQuestions/{user_id}', 'QuestionController@getAnsweredQuestions');
+//Route::get('askedQuestions/{user_id}', 'QuestionController@getAskedQuestions');
+//Route::post('newQuestion', 'DiscussionController@handleAskQuestion');
+//Route::post('newAnswer', 'DiscussionController@handleAnswer');
+//Route::post('questionUpvote', 'DiscussionController@handleQuestionUpvote');
