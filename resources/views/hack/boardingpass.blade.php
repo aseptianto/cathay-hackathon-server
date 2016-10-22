@@ -41,14 +41,14 @@
         </div>
         <div class="row flex">
             <div id="passenger"> <span>Passenger</span>CHENG/LAMFUNGMR</div>
-            <div id="seat"> <span>Seat</span>TBD</div>
+            <div id="seat"> <span>Seat</span>30A</div>
         </div>
         <div class="row flex textcenter" id="gateinfo">
             <div id="gateclose"> <span>Gate Close</span>18:30</div>
             <div id="departs"> <span>Departs</span>19:00</div>
             <div id="gate"> <span>Gate</span>TBD</div>
         </div>
-        <div class="row textcenter"><a href="/email"><img src="{{ URL::asset("image/qrcode.png") }}"></a></div>
+        <div class="row textcenter"><img src="{{ URL::asset("image/qrcode.png") }}"></div>
     </div>
 </div>
 </body>

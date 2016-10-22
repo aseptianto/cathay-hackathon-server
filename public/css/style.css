@@ -313,3 +313,134 @@ input[type=checkbox]:checked + label:before {
 .colorbg span {
     color: white;
 }
+
+div.stars {
+    width: 270px;
+    display: inline-block;
+    clear: both;
+}
+
+input.star {
+    display: none;
+}
+
+label.star {
+    float: right;
+    padding: 3px 10px;
+    font-size: 36px;
+    color: #999;
+    transition: all .2s;
+    cursor: pointer;
+}
+
+input.star:checked ~ label.star:before {
+    content: '\f005';
+    color: #FD4;
+    transition: all .25s;
+}
+
+label.star:before {
+    content: '\f006';
+    font-family: FontAwesome;
+}
+
+#rating {
+    margin-top: -40px
+}
+
+#rating .formdesc {
+    display: block;
+    margin-top: 30px;
+    margin-bottom: 10px
+}
+
+.card {
+    position: relative;
+    margin: 10px;
+    background-color: white;
+    border-radius: 3px;
+    box-shadow: 0px 0px 5px #999;
+    overflow: hidden;
+    cursor: pointer;
+}
+
+.coupon-top {
+    position: relative;
+    padding: 5px 16px;
+}
+
+.coupon-top h1 {
+    margin-left: 0px;
+    font-size: 2em;
+    color: #006564;
+}
+
+.coupon-top p {
+    margin: 10px 3px 15px 3px;
+    font-size: 1em;
+    line-height: 1.5em;
+}
+
+.coupon-top .plus-sign {
+    position: absolute;
+    top: 1em;
+    right: 1em;
+}
+
+.coupon-bottom {
+    padding: 8px 16px;
+    font-size: 0.8em;
+    background-color: #e3e3e3;
+    display: flex;
+    justify-content: space-between;
+}
+
+.product-top {
+    display: flex;
+    align-items: center;
+    align-content: center;
+    padding: 10px;
+}
+
+.product-desc {
+    margin-top: 5px;
+}
+
+.product-desc p {
+    margin-top: 0px;
+    margin-bottom: 0px;
+}
+
+.product-desc .price {
+    color: #006564;
+    font-size: 0.8em;
+    font-weight: 600;
+    margin-top: 10px;
+    margin-bottom: 10px;
+}
+
+.product-pic img {
+    padding: 0px 10px;
+    height: 100px;
+}
+
+.product-bottom {
+    padding: 8px 16px;
+    font-size: 0.8em;
+    background-color: #e3e3e3;
+    text-transform: uppercase;
+    letter-spacing: 1px;
+}
+
+.strike {
+    text-decoration: line-through;
+    font-weight: 300;
+}
+
+.hyperspan {
+    position: absolute;
+    width: 100%;
+    height: 100%;
+    left: 0;
+    top: 0;
+}

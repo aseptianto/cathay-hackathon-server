@@ -30,6 +30,22 @@ Route::get('/social', 'HackController@social');
 Route::get('/success', 'HackController@success');
 Route::get('/travelstyle', 'HackController@travelStyle');
 
+Route::get('/coupon', function() {
+    return view('hack.coupon');
+});
+Route::get('/coupondetail', function() {
+    return view('hack.coupondetail');
+});
+Route::get('/email', function() {
+    return view('hack.email');
+});
+Route::get('/rating', function() {
+    return view('hack.rating');
+});
+Route::get('/boardingpass', function() {
+    return view('hack.boardingpass');
+});
+
 Route::get('sendemail', function () {
 
     $data = array(
