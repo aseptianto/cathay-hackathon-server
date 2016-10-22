@@ -23,7 +23,7 @@
 </div>
 <div class="appcontent">
     <div class="row">
-        <h1>----Name----, you have successfully check-in.<br>Here's your Boarding Pass.</h1>
+        <h1>Fung, you have successfully check-in.<br>Here's your Boarding Pass.</h1>
         <p> It's also sent to <u>lamfung.cheng@gmail.com</u></p>
     </div>
     <div class="boardingpass">
