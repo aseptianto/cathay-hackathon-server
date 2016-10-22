@@ -67,7 +67,7 @@ class FacebookAuthController extends Controller
             'user_actions.music',
         ];
         $fields = [
-            'name', 'email', 'gender', 'verified', 'first_name', 'last_name', 'education', 'hometown', 'location',
+            'name', 'email', 'friends', 'gender', 'verified', 'first_name', 'last_name', 'education', 'hometown', 'location',
             'work', 'books.reads', 'music.listens', 'age_range'
         ];
         $providerInstance = Socialite::driver('facebook');
@@ -80,6 +80,11 @@ class FacebookAuthController extends Controller
         );
         $providerUser = Socialite::driver('facebook')->fields($fields)->user();
         $profileId = !empty($providerUser->id) ? $providerUser->id : '10154730815304456';
+        $friends = array();
+        $friendsRaw = !empty($providerUser->user['friends']['data']) ? $providerUser->user['friends']['data'] : array();
+        foreach($friendsRaw as $friend) {
+            array_push($friends, $friend);
+        }
         $age = !empty($providerUser->user['age_range']['min']) ? $providerUser->user['age_range']['min'] : 0;
         $email = !empty($providerUser->email) ? $providerUser->email : '';
         $educations = array();
@@ -138,7 +143,9 @@ class FacebookAuthController extends Controller
             'gender' => $gender,
             'works' => $worksRaw
         );
+        
+        return view('hack.social-done');
 
-        return json_encode($finalData);
+//        return json_encode($finalData);
     }
 }

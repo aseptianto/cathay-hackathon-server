@@ -30,6 +30,24 @@ Route::get('/social', 'HackController@social');
 Route::get('/success', 'HackController@success');
 Route::get('/travelstyle', 'HackController@travelStyle');
 
+Route::get('sendemail', function () {
+
+    $data = array(
+        'name' => "Learning Laravel",
+    );
+
+    Mail::send('emails.receipt', $data, function ($message) {
+
+        $message->from('cx.hackathon@gmail.com', 'Learning Laravel');
+
+        $message->to('cx.hackathon@gmail.com')->subject('Learning Laravel test email');
+
+    });
+
+    return "Your email has been sent successfully";
+
+});
+
 //// USThing paths and API
 //Route::get('usthing/', 'USThingController@handleIndex');
 //Route::get('usthing/{itsc}', 'USThingController@handleIndex');

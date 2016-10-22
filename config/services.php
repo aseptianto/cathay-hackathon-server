@@ -36,9 +36,9 @@ return [
     ],
 
     'facebook' => [
-        'client_id' => '1793016677646206',
-        'client_secret' => '36e6d01aa538f8edee1ca2c546c67e64',
-        'redirect' => 'http://localhost:8000/facebookCallback',
+        'client_id' => env('FB_APP_ID', '1793016677646206'),
+        'client_secret' => env('FB_APP_SECRET','36e6d01aa538f8edee1ca2c546c67e64'),
+        'redirect' => env('FB_REDIRECT_URI', 'http://cx.getpeeko.com/facebookCallback'),
     ],
 
 ];

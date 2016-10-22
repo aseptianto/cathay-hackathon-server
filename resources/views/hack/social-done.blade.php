@@ -25,12 +25,12 @@
     <div class="row">
         <h1>Welcome to SocialPlus</h1>
         <p>Sunt fabulas de ingeniis mentitum hic praetermissum quem illustriora eruditionem quo eu praetermissum coniunctione eram pariatur despicationes anim ipsum labore</p>
-        <a href="/facebookRedirect">
-            <div class="btn social_btn facebook">
-                <i class="fa fa-facebook" aria-hidden="true">
-                </i>Login with Facebook
+        <div class="btn social_btn facebook">
+            <i class="fa fa-facebook" aria-hidden="true">
+            </i>Login with Facebook
+            <div class="checkmark"><i class="fa fa-check-circle-o" aria-hidden="true"></i>
             </div>
-        </a>
+        </div>
         <div class="btn social_btn linkedin">
             <i class="fa fa-linkedin" aria-hidden="true"></i>Login with Linkedin</div>
         <div class="accept">
