@@ -14,8 +14,8 @@ class CreateProfilesMusicsTable extends Migration
     public function up()
     {
         Schema::create('profiles_musics', function (Blueprint $table) {
-            $table->unsignedInteger('profile_id');
-            $table->unsignedInteger('music_id');
+            $table->unsignedBigInteger('profile_id');
+            $table->unsignedBigInteger('music_id');
             $table->unique(array('profile_id','music_id'));
             $table->timestamps();
         });

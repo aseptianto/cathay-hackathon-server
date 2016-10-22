@@ -14,7 +14,7 @@ class CreateBooksTable extends Migration
     public function up()
     {
         Schema::create('books', function (Blueprint $table) {
-            $table->unsignedInteger('book_id')->unique();
+            $table->unsignedBigInteger('book_id')->unique();
             $table->string('book_name');
             $table->timestamps();
         });

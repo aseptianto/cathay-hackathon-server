@@ -14,8 +14,8 @@ class CreateProfilesWorksTable extends Migration
     public function up()
     {
         Schema::create('profiles_works', function (Blueprint $table) {
-            $table->unsignedInteger('profile_id');
-            $table->unsignedInteger('work_id');
+            $table->unsignedBigInteger('profile_id');
+            $table->unsignedBigInteger('work_id');
             $table->unique(array('profile_id','work_id'));
             $table->timestamps();
         });

@@ -14,8 +14,8 @@ class CreateProfilesFriendsTable extends Migration
     public function up()
     {
         Schema::create('profiles_friends', function (Blueprint $table) {
-            $table->unsignedInteger('profile_id');
-            $table->unsignedInteger('friend_profile_id');
+            $table->unsignedBigInteger('profile_id');
+            $table->unsignedBigInteger('friend_profile_id');
             $table->unique(array('profile_id','friend_profile_id'));
             $table->timestamps();
         });

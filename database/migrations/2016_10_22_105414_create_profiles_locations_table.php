@@ -14,8 +14,8 @@ class CreateProfilesLocationsTable extends Migration
     public function up()
     {
         Schema::create('profiles_locations', function (Blueprint $table) {
-            $table->unsignedInteger('profile_id');
-            $table->unsignedInteger('location_id');
+            $table->unsignedBigInteger('profile_id');
+            $table->unsignedBigInteger('location_id');
             $table->unique(array('profile_id','location_id'));
             $table->timestamps();
         });

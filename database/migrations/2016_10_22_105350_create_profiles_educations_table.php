@@ -14,8 +14,8 @@ class CreateProfilesEducationsTable extends Migration
     public function up()
     {
         Schema::create('profiles_educations', function (Blueprint $table) {
-            $table->unsignedInteger('profile_id');
-            $table->unsignedInteger('education_id');
+            $table->unsignedBigInteger('profile_id');
+            $table->unsignedBigInteger('education_id');
             $table->unique(array('profile_id','education_id'));
             $table->timestamps();
         });

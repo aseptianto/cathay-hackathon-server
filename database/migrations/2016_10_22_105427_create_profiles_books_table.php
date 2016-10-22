@@ -14,8 +14,8 @@ class CreateProfilesBooksTable extends Migration
     public function up()
     {
         Schema::create('profiles_books', function (Blueprint $table) {
-            $table->unsignedInteger('profile_id');
-            $table->unsignedInteger('book_id');
+            $table->unsignedBigInteger('profile_id');
+            $table->unsignedBigInteger('book_id');
             $table->unique(array('profile_id','book_id'));
             $table->timestamps();
         });

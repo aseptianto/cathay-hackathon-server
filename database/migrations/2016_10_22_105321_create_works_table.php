@@ -14,7 +14,7 @@ class CreateWorksTable extends Migration
     public function up()
     {
         Schema::create('works', function (Blueprint $table) {
-            $table->unsignedInteger('work_id')->unique();
+            $table->unsignedBigInteger('work_id')->unique();
             $table->string('work_name');
             $table->timestamps();
         });

@@ -14,7 +14,7 @@ class CreateMusicsTable extends Migration
     public function up()
     {
         Schema::create('musics', function (Blueprint $table) {
-            $table->unsignedInteger('music_id')->unique();
+            $table->unsignedBigInteger('music_id')->unique();
             $table->string('music_name');
             $table->timestamps();
         });
