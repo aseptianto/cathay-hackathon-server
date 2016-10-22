@@ -14,7 +14,7 @@ class CreateHometownsTable extends Migration
     public function up()
     {
         Schema::create('hometowns', function (Blueprint $table) {
-            $table->increments('hometown_id');
+            $table->unsignedInteger('hometown_id')->unique();
             $table->string('hometown_name');
             $table->timestamps();
         });
