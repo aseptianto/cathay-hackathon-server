@@ -11,6 +11,11 @@ use App\Hometowns;
 use App\Locations;
 use App\Profiles;
 use App\Works;
+use App\ProfilesWorks;
+use App\ProfilesEducations;
+use App\ProfilesHometowns;
+use App\ProfilesLocations;
+
 
 use Socialite;
 use GuzzleHttp\Client;
@@ -102,13 +107,16 @@ class FacebookAuthController extends Controller
             if(!empty($education['school'])) {
 //                array_push($educations, $education['school']);
                 Educations::existsOrCreate($education['school']);
+                ProfilesEducations::existsOrCreate($profileData,$education['school']);
             }
         }
         if(!empty($providerUser->user['hometown'])) {
             Hometowns::existsOrCreate($providerUser->user['hometown']);
+            ProfilesHometowns::existsOrCreate($profileData,$providerUser->user['hometown']);
         }
         if(!empty($providerUser->user['location'])) {
             Locations::existsOrCreate($providerUser->user['location']);
+            ProfilesLocations::existsOrCreate($profileData,$providerUser->user['location']);
         }
         $hometown = !empty($providerUser->user['hometown']) ? $providerUser->user['hometown'] : null;
         $location = !empty($providerUser->user['location']) ? $providerUser->user['location'] : null;
@@ -116,15 +124,19 @@ class FacebookAuthController extends Controller
         foreach($worksRaw as $work) {
             if(!empty($work['employer'])) {
                 Works::existsOrCreate($work['employer']);
+                ProfilesWorks::existsOrCreate($profileData,$work['employer']);
 //                array_push($works, $work['employer']);
             }
         }
+
+
+
         $finalData = array(
-            'educations' => $educations,
+            'educations' => $educationsRaw,
             'hometown' => $hometown,
             'location' => $location,
             'gender' => $gender,
-            'works' => $works
+            'works' => $worksRaw
         );
 
         return json_encode($finalData);
