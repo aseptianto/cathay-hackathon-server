@@ -2,7 +2,12 @@
 
 namespace App\Http\Controllers;
 
+use App\ProfilesEducations;
 use App\ProfilesFlights;
+use App\ProfilesWorks;
+use App\ProfilesLocations;
+use App\ProfilesHometowns;
+use Illuminate\Database\Eloquent\Collection;
 use Illuminate\Http\Request;
 use App\Test;
 
@@ -21,7 +26,67 @@ class HackController extends Controller
 
     public function hackMatchingAlgorithm($profile_id) {
         //based on profile id - find the profiles in the same flight
-        ProfilesFlights::findProfilesInSameFlights($profile_id,1);
+        //hardcode all in flight 1
+
+        $profiles = ProfilesFlights::hasRegistered($profile_id,1);
+
+
+        if(!$profiles->isEmpty()) {
+            return json_encode($profiles);
+        }
+
+        $profiles = ProfilesFlights::findProfilesInSameFlights($profile_id,1);
+        if(!($profiles instanceof Collection)) {
+            echo('b');
+
+            //this means it is just created
+            return json_encode($profiles);
+        }
+
+        $profiles_ids = array();
+        foreach($profiles as $profile) {
+            array_push($profiles_ids,$profile->profile_id);
+        }
+        $matching = ProfilesEducations::findMatchingProfileId($profile_id,$profiles_ids);
+
+        if(!empty($matching)) {
+            $matching_item = $matching[0];
+            $return = ProfilesFlights::placeInNextSeat($profile_id,$matching_item);
+            return json_encode($return);
+        }
+
+
+        $matching = ProfilesWorks::findMatchingProfileId($profile_id,$profiles_ids);
+
+        if(!empty($matching)) {
+            $matching_item = $matching[0];
+            $return = ProfilesFlights::placeInNextSeat($profile_id,$matching_item);
+            return json_encode($return);
+        }
+
+        $matching = ProfilesHometowns::findMatchingProfileId($profile_id,$profiles_ids);
+
+        if(!empty($matching)) {
+            $matching_item = $matching[0];
+            var_dump($matching_item);die();
+            $return = ProfilesFlights::placeInNextSeat($profile_id,$matching_item);
+            return json_encode($return);
+
+        }
+
+        $matching = ProfilesLocations::findMatchingProfileId($profile_id,$profiles_ids);
+
+        if(!empty($matching)) {
+            $matching_item = $matching[0];
+            $return = ProfilesFlights::placeInNextSeat($profile_id,$matching_item);
+            return json_encode($return);
+
+        }
+
+        //assign random seat
+        $return = ProfilesFlights::assignRandomSeat($profile_id, 1);
+
+        return json_encode($return);
         //based on the profiles - find out if they are friend
         //if they are not - check if they work in the same company
         //if they are not - check if they studied in the same school

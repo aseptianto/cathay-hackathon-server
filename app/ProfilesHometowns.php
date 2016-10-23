@@ -22,5 +22,22 @@ class ProfilesHometowns extends Model
         }
     }
 
+    public static function findMatchingProfileId ($profile_id, $profiles_ids) {
+        $base_profiles_hometowns = ProfilesHometowns::where('profile_id',$profile_id)->get();
+        if(!$base_profiles_hometowns->isEmpty()) {
+            $result = array();
+            foreach($base_profiles_hometowns as $base_profiles_hometown) {
+                $profiles_hometowns = ProfilesHometowns::where('hometown_id',$base_profiles_hometown->hometown_id)->whereIn('profile_id',$profiles_ids)->get();
+                if(!$profiles_hometowns->isEmpty()) {
+                    array_push($result,$profiles_hometowns);
+                }
+            }
+            return $result;
+        } else {
+            return null;
+        }
+
+    }
+
 
 }
