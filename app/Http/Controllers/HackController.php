@@ -31,7 +31,8 @@ class HackController extends Controller
         $profiles = ProfilesFlights::hasRegistered($profile_id,1);
 
 
-        if(!$profiles->isEmpty()) {
+        if(!is_null($profiles)) {
+            // if already registered, no need matching
             return json_encode($profiles);
         }
 
@@ -50,8 +51,9 @@ class HackController extends Controller
         $matching = ProfilesEducations::findMatchingProfileId($profile_id,$profiles_ids);
 
         if(!empty($matching)) {
-            $matching_item = $matching[0];
-            $return = ProfilesFlights::placeInNextSeat($profile_id,$matching_item);
+            $matching_item = $matching[0][0];
+            $matching_profile_flight = ProfilesFlights::hasRegistered($matching_item->profile_id, 1);
+            $return = ProfilesFlights::placeInNextSeat($profile_id,$matching_profile_flight);
             return json_encode($return);
         }
 
@@ -59,17 +61,18 @@ class HackController extends Controller
         $matching = ProfilesWorks::findMatchingProfileId($profile_id,$profiles_ids);
 
         if(!empty($matching)) {
-            $matching_item = $matching[0];
-            $return = ProfilesFlights::placeInNextSeat($profile_id,$matching_item);
+            $matching_item = $matching[0][0];
+            $matching_profile_flight = ProfilesFlights::hasRegistered($matching_item->profile_id, 1);
+            $return = ProfilesFlights::placeInNextSeat($profile_id,$matching_profile_flight);
             return json_encode($return);
         }
 
         $matching = ProfilesHometowns::findMatchingProfileId($profile_id,$profiles_ids);
 
         if(!empty($matching)) {
-            $matching_item = $matching[0];
-            var_dump($matching_item);die();
-            $return = ProfilesFlights::placeInNextSeat($profile_id,$matching_item);
+            $matching_item = $matching[0][0];
+            $matching_profile_flight = ProfilesFlights::hasRegistered($matching_item->profile_id, 1);
+            $return = ProfilesFlights::placeInNextSeat($profile_id,$matching_profile_flight);
             return json_encode($return);
 
         }
@@ -77,8 +80,9 @@ class HackController extends Controller
         $matching = ProfilesLocations::findMatchingProfileId($profile_id,$profiles_ids);
 
         if(!empty($matching)) {
-            $matching_item = $matching[0];
-            $return = ProfilesFlights::placeInNextSeat($profile_id,$matching_item);
+            $matching_item = $matching[0][0];
+            $matching_profile_flight = ProfilesFlights::hasRegistered($matching_item->profile_id, 1);
+            $return = ProfilesFlights::placeInNextSeat($profile_id,$matching_profile_flight);
             return json_encode($return);
 
         }

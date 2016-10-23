@@ -29,6 +29,7 @@ class ProfilesHometowns extends Model
             foreach($base_profiles_hometowns as $base_profiles_hometown) {
                 $profiles_hometowns = ProfilesHometowns::where('hometown_id',$base_profiles_hometown->hometown_id)->whereIn('profile_id',$profiles_ids)->get();
                 if(!$profiles_hometowns->isEmpty()) {
+                    
                     array_push($result,$profiles_hometowns);
                 }
             }

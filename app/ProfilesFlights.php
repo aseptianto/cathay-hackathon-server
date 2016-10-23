@@ -10,7 +10,8 @@ class ProfilesFlights extends Model
 
     public static function hasRegistered($profile_id,$flight_id)
     {
-        $profiles = ProfilesFlights::where('profile_id', $profile_id)->where('flight_id',$flight_id)->get();
+        // if registered, return the profileflight, else it should be null
+        $profiles = ProfilesFlights::where('profile_id', $profile_id)->where('flight_id',$flight_id)->first();
 
         return $profiles;
 
@@ -51,13 +52,13 @@ class ProfilesFlights extends Model
         $profiles->flight_row = $matching_profile_flight->flight_row;
         $matching_profile_flight->flight_col++;
         if($matching_profile_flight->flight_col == 'H') {
-            $profiles->flight_col = 'G';
+            $profiles->flight_col = 'F';
         }
         else {
              $profiles->flight_col = $matching_profile_flight->flight_col;
          }
         $profiles->save();
 
-        $profiles;
+        return $profiles;
     }
 }
